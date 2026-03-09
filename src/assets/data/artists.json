@@ -1,0 +1,20 @@
+[
+  {
+    "id": "a1",
+    "name": "The Synthwave Dreamers",
+    "bio": "A retro-futuristic electronic music duo.",
+    "imageUrl": "https://picsum.photos/seed/synth/400/400"
+  },
+  {
+    "id": "a2",
+    "name": "Acoustic Melody",
+    "bio": "Indie folk band known for heartfelt acoustic sessions.",
+    "imageUrl": "https://picsum.photos/seed/acoustic/400/400"
+  },
+  {
+    "id": "a3",
+    "name": "DJ Pulsar",
+    "bio": "Legendary DJ producing high-energy EDM tracks.",
+    "imageUrl": "https://picsum.photos/seed/dj/400/400"
+  }
+]

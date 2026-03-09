@@ -1,0 +1,62 @@
+.search-container {
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: center;
+
+  .search-input {
+    width: 100%;
+    max-width: 600px;
+  }
+}
+
+.song-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.song-card {
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  overflow: hidden;
+  height: 100%;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  }
+
+  img {
+    height: 200px;
+    object-fit: cover;
+  }
+
+  mat-card-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 16px;
+
+    .song-info {
+      h3 {
+        margin: 0 0 4px;
+        font-size: 1.1rem;
+      }
+      p {
+        margin: 0 0 4px;
+        color: rgba(128,128,128, 0.8);
+        
+        a {
+          color: var(--primary-color);
+          text-decoration: none;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+      .meta {
+        font-size: 0.85rem;
+      }
+    }
+  }
+}

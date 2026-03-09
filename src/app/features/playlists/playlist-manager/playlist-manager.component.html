@@ -1,0 +1,54 @@
+<div class="playlist-container">
+  <div class="form-section">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{ editingId ? 'Edit Playlist' : 'Create New Playlist' }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form [formGroup]="playlistForm" (ngSubmit)="onSubmit()" class="playlist-form">
+          <mat-form-field appearance="outline">
+            <mat-label>Playlist Name</mat-label>
+            <input matInput formControlName="name" placeholder="E.g., Workout Mix">
+            <mat-error *ngIf="playlistForm.get('name')?.hasError('required')">Name is required</mat-error>
+            <mat-error *ngIf="playlistForm.get('name')?.hasError('minlength')">Name must be at least 3 characters</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Description (Optional)</mat-label>
+            <textarea matInput formControlName="description" rows="3"></textarea>
+          </mat-form-field>
+
+          <div class="form-actions">
+            <button mat-raised-button color="primary" type="submit" [disabled]="playlistForm.invalid">
+              {{ editingId ? 'Update' : 'Create' }}
+            </button>
+            <button mat-button type="button" *ngIf="editingId" (click)="cancelEdit()">Cancel</button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="list-section">
+    <h2>Your Playlists</h2>
+    <mat-list>
+      <mat-list-item *ngFor="let playlist of playlists" class="playlist-item">
+        <mat-icon matListItemIcon>queue_music</mat-icon>
+        <div matListItemTitle>{{ playlist.name }}</div>
+        <div matListItemLine>{{ playlist.description || 'No description' }} ({{ playlist.songIds.length }} songs)</div>
+        <div class="item-actions">
+          <button mat-icon-button (click)="editPlaylist(playlist)" matTooltip="Edit">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deletePlaylist(playlist.id)" matTooltip="Delete">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </mat-list-item>
+      
+      <div *ngIf="playlists.length === 0" class="empty-list">
+        <p>No playlists yet.</p>
+      </div>
+    </mat-list>
+  </div>
+</div>

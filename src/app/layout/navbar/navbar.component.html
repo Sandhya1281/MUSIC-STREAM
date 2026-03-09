@@ -1,0 +1,28 @@
+<mat-toolbar color="primary" class="navbar">
+  <span class="logo material-icons">music_note</span>
+  <a routerLink="/" class="title">MusicStream</a>
+  
+  <span class="spacer"></span>
+  
+  <div class="nav-links">
+    <a mat-button routerLink="/songs" routerLinkActive="active-link">Browse Songs</a>
+    <a mat-button routerLink="/playlists" routerLinkActive="active-link">Playlists</a>
+    <a mat-button routerLink="/now-playing" routerLinkActive="active-link">Now Playing</a>
+    <a mat-button routerLink="/feedback" routerLinkActive="active-link">Feedback</a>
+  </div>
+
+  <button mat-icon-button (click)="toggleTheme()" aria-label="Toggle dark mode">
+    <mat-icon>{{ isDarkMode ? 'light_mode' : 'dark_mode' }}</mat-icon>
+  </button>
+  
+  <!-- Mobile Menu -->
+  <button mat-icon-button [matMenuTriggerFor]="menu" class="mobile-menu-btn">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <a mat-menu-item routerLink="/songs">Browse Songs</a>
+    <a mat-menu-item routerLink="/playlists">Playlists</a>
+    <a mat-menu-item routerLink="/now-playing">Now Playing</a>
+    <a mat-menu-item routerLink="/feedback">Feedback</a>
+  </mat-menu>
+</mat-toolbar>

@@ -1,0 +1,31 @@
+<div class="artist-container" *ngIf="artist">
+  <mat-card class="artist-header">
+    <img mat-card-image [src]="artist.imageUrl" alt="{{ artist.name }}" class="hero-img">
+    <mat-card-content class="hero-content">
+      <h1>{{ artist.name }}</h1>
+      <p class="bio">{{ artist.bio }}</p>
+    </mat-card-content>
+  </mat-card>
+
+  <div class="songs-section">
+    <h2>Popular Tracks</h2>
+    <mat-list>
+      <mat-list-item *ngFor="let song of artistSongs" class="song-item">
+        <img matListItemAvatar [src]="song.coverUrl" alt="Cover">
+        <div matListItemTitle>{{ song.title }}</div>
+        <div matListItemLine>{{ song.album }} &bull; {{ song.genre }}</div>
+        <button mat-icon-button (click)="playSong(song)" class="play-btn">
+          <mat-icon>play_circle_filled</mat-icon>
+        </button>
+      </mat-list-item>
+      <div *ngIf="artistSongs.length === 0" class="empty-songs">
+        <p>No tracks found for this artist.</p>
+      </div>
+    </mat-list>
+  </div>
+</div>
+
+<div class="not-found" *ngIf="!artist">
+  <h2>Artist not found</h2>
+  <a mat-button color="primary" routerLink="/songs">Back to Songs</a>
+</div>

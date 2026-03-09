@@ -1,0 +1,40 @@
+<div class="player-container" *ngIf="currentSong; else noSong">
+  <mat-card class="player-card">
+    <img mat-card-image [src]="currentSong.coverUrl" alt="{{ currentSong.title }} cover">
+    <mat-card-content class="player-content">
+      <div class="song-info">
+        <h2>{{ currentSong.title }}</h2>
+        <h3>{{ currentSong.artistName }}</h3>
+      </div>
+      
+      <div class="progress-section">
+        <span class="time">{{ formatTime(progress) }}</span>
+        <mat-slider class="progress-slider" [max]="currentSong.duration" min="0" step="1">
+          <input matSliderThumb [ngModel]="progress" (valueChange)="onSliderChange({value: $event})">
+        </mat-slider>
+        <span class="time">{{ formatTime(currentSong.duration) }}</span>
+      </div>
+
+      <div class="controls">
+        <button mat-icon-button (click)="audioService.seek(0)">
+          <mat-icon>skip_previous</mat-icon>
+        </button>
+        <button mat-fab color="primary" class="play-btn" (click)="togglePlay()">
+          <mat-icon>{{ isPlaying ? 'pause' : 'play_arrow' }}</mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon>skip_next</mat-icon>
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<ng-template #noSong>
+  <div class="empty-state">
+    <mat-icon class="empty-icon">music_note</mat-icon>
+    <h2>No song is currently playing</h2>
+    <p>Go to Browse Songs to select a track.</p>
+    <a mat-raised-button color="primary" routerLink="/songs">Browse Songs</a>
+  </div>
+</ng-template>

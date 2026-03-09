@@ -1,0 +1,59 @@
+.artist-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.artist-header {
+  margin-bottom: 32px;
+  border-radius: 16px;
+  overflow: hidden;
+
+  .hero-img {
+    height: 350px;
+    object-fit: cover;
+  }
+
+  .hero-content {
+    h1 {
+      font-size: 2.5rem;
+      margin: 0 0 8px;
+    }
+    .bio {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: rgba(128,128,128, 0.9);
+    }
+  }
+}
+
+.songs-section {
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 16px;
+  }
+
+  .song-item {
+    border-radius: 8px;
+    margin-bottom: 8px;
+    transition: background 0.2s;
+    
+    &:hover {
+      background: rgba(0,0,0,0.04);
+    }
+
+    .play-btn {
+      color: var(--primary-color);
+    }
+  }
+}
+
+:host-context(.dark-theme) {
+  .song-item:hover {
+    background: rgba(255,255,255,0.05);
+  }
+}
+
+.not-found {
+  text-align: center;
+  padding: 64px 20px;
+}

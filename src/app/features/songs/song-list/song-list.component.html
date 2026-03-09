@@ -1,0 +1,29 @@
+<div class="search-container">
+  <mat-form-field appearance="outline" class="search-input">
+    <mat-label>Search Songs</mat-label>
+    <mat-icon matPrefix>search</mat-icon>
+    <input matInput [(ngModel)]="searchText" placeholder="By title, artist, album, genre...">
+    <button *ngIf="searchText" matSuffix mat-icon-button aria-label="Clear" (click)="searchText=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+</div>
+
+<div class="song-grid">
+  <mat-card *ngFor="let song of songs | filter:searchText" class="song-card" 
+            [appHighlight]="song.id === currentSongId"
+            (click)="playSong(song)">
+    <img mat-card-image [src]="song.coverUrl" alt="Cover for {{song.title}}">
+    <mat-card-content>
+      <div class="song-info">
+        <h3>{{ song.title }}</h3>
+        <p><a [routerLink]="['/artists', song.artistId]" (click)="$event.stopPropagation()">{{ song.artistName }}</a></p>
+        <p class="meta">{{ song.album }} &bull; {{ song.genre }}</p>
+      </div>
+      <button mat-icon-button class="favorite-btn" (click)="toggleFavorite(song, $event)"
+              [color]="userService.isFavorite(song.id) ? 'accent' : ''">
+        <mat-icon>{{ userService.isFavorite(song.id) ? 'favorite' : 'favorite_border' }}</mat-icon>
+      </button>
+    </mat-card-content>
+  </mat-card>
+</div>

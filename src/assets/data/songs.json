@@ -1,0 +1,42 @@
+[
+  {
+    "id": "s1",
+    "title": "Neon Nights",
+    "artistId": "a1",
+    "album": "Retro Future",
+    "genre": "Synthwave",
+    "duration": 215,
+    "coverUrl": "https://picsum.photos/seed/neon/300/300",
+    "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+  },
+  {
+    "id": "s2",
+    "title": "Cyber City Calling",
+    "artistId": "a1",
+    "album": "Retro Future",
+    "genre": "Synthwave",
+    "duration": 190,
+    "coverUrl": "https://picsum.photos/seed/cyber/300/300",
+    "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
+  },
+  {
+    "id": "s3",
+    "title": "Morning Coffee",
+    "artistId": "a2",
+    "album": "Unplugged Sessions",
+    "genre": "Indie Folk",
+    "duration": 180,
+    "coverUrl": "https://picsum.photos/seed/coffee/300/300",
+    "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
+  },
+  {
+    "id": "s4",
+    "title": "Drop The Bass",
+    "artistId": "a3",
+    "album": "EDM Anthems",
+    "genre": "EDM",
+    "duration": 240,
+    "coverUrl": "https://picsum.photos/seed/drop/300/300",
+    "audioUrl": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"
+  }
+]

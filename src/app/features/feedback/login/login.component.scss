@@ -1,0 +1,42 @@
+.feedback-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.feedback-card {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+
+  mat-card-header {
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    ::ng-deep .mat-mdc-card-header-text {
+      margin: 0;
+    }
+
+    mat-card-title {
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+    }
+  }
+
+  .feedback-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .submit-btn {
+      margin-top: 16px;
+      padding: 8px 0;
+      font-size: 1.1rem;
+    }
+  }
+}
